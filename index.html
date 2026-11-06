@@ -45,6 +45,63 @@
     
     <!-- Descarga una colección de íconos (como símbolos matemáticos, engranes o flechas) para poder dibujarlos en la página como si fueran texto -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Abre una etiqueta <script>, que es el lugar donde escribimos código para que el navegador ejecute instrucciones o configuraciones -->
+<script>
+
+        <!-- Le avisa a la herramienta de diseño (Tailwind) que vamos a cambiar su configuración predeterminada -->
+        tailwind.config = {
+            
+            <!-- Entra a la sección de diseño (temas o estilos personalizados) -->
+            theme: {
+                
+                <!-- Permite ampliar o agregar cosas nuevas a los estilos normales de la herramienta -->
+                extend: {
+                    
+                    <!-- Configuración de las fuentes o tipos de letra que usará la página -->
+                    fontFamily: {
+                        
+                        <!-- Define que la letra predeterminada (sans) de toda la página será 'Inter' y si no la hay, usará cualquier otra normal -->
+                        sans: ['Inter', 'sans-serif'],
+                        
+                        <!-- Define que la letra de estilo técnico o estilo máquina de escribir (mono) será 'JetBrains Mono' -->
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    
+                    <!-- Configuración personalizada de los colores que usaremos en la página -->
+                    colors: {
+                        
+                        <!-- Crea un nuevo grupo de colores propio llamado "brand" (como el color de nuestra marca) -->
+                        brand: {
+                            
+                            <!-- Tonalidad azul muy clarita (ideal para fondos o detalles sutiles) -->
+                            50: '#f0f9ff',
+                            
+                            <!-- Tonalidad azul un poco más visible pero suave -->
+                            100: '#e0f2fe',
+                            
+                            <!-- Tonalidad azul brillante principal (para botones o elementos destacados) -->
+                            500: '#0ea5e9',
+                            
+                            <!-- Tonalidad azul un poco más oscura (ideal para cuando pasas el ratón encima de un botón) -->
+                            600: '#0284c7',
+                            
+                            <!-- Tonalidad azul profunda u obscura (para contrastes fuertes o textos) -->
+                            700: '#0369a1',
+                        }
+                    }
+                }
+            }
+        }
+        
+<!-- Cierra la etiqueta del script de configuración -->
+</script>
+
+
+
+
+
+
+
 
 
 
@@ -58,27 +115,6 @@
 
 
             
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    colors: {
-                        brand: {
-                            50: '#f0f9ff',
-                            100: '#e0f2fe',
-                            500: '#0ea5e9',
-                            600: '#0284c7',
-                            700: '#0369a1',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
     <style>
         /* Custom scrollbar for display and history */
         ::-webkit-scrollbar {
