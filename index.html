@@ -1,18 +1,63 @@
+<!-- Indica al navegador que este documento utiliza la versión moderna de HTML (HTML5) -->
 <!DOCTYPE html>
-<html lang="es" class="h-full bg-slate-900">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora Científica GT</title>
-    <!-- Tailwind CSS CDN -->
+
+    <!-- Inicia el documento HTML, estableciendo el idioma en español ("es") y aplicando estilos para que ocupe todo el alto ("h-full") con fondo oscuro ("bg-slate-900") -->
+    <html lang="es" class="h-full bg-slate-900">
+        
+        <!-- Abre la sección del encabezado (head), donde van la configuración e instrucciones invisibles para la página -->
+        <head>
+            
+            <!-- Define la codificación de caracteres en UTF-8 para que el navegador reconozca correctamente acentos, letras 'ñ' y símbolos -->
+            <meta charset="UTF-8">
+            
+            <!-- Ajusta la pantalla para que la página se adapte bien y se vea correctamente en celulares, tabletas y computadoras -->
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            
+            <!-- Inicia la etiqueta para el título de la pestaña de la página -->
+            <title>
+                
+                <!-- Nombre que aparecerá escrito en la pestaña superior del navegador web -->
+                Calculadora Científica GT
+            
+            <!-- Cierra la etiqueta del título -->
+            </title>
+            
+            <!-- Comentario de código que sirve como nota informativa: avisa que abajo se carga la librería Tailwind CSS -->
+            <!-- Tailwind CSS CDN -->
+            
+    <!-- Carga la herramienta Tailwind CSS desde internet, la cual permite darle diseño, colores y forma a la página fácilmente mediante clases -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter & JetBrains Mono -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Comentario informativo: indica que las siguientes líneas cargarán tipos de letra (fuentes) desde Google Fonts -->
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    
+    <!-- Conecta con el servidor de Google Fonts para acelerar la descarga de las fuentes tipográficas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    
+    <!-- Establece una segunda conexión previa con Google Fonts permitiendo el acceso rápido sin restricciones de origen -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Descarga de internet las letras 'Inter' (para textos) y 'JetBrains Mono' (estilo tipo código o calculadora) con diferentes grosores -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Comentario informativo: señala que la siguiente línea cargará íconos de la librería FontAwesome -->
+    <!-- FontAwesome Icons -->
+    
+    <!-- Descarga una colección de íconos (como símbolos matemáticos, engranes o flechas) para poder dibujarlos en la página como si fueran texto -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+
+
+
+
+
+
+
+
+
+
+            
     <script>
         tailwind.config = {
             theme: {
