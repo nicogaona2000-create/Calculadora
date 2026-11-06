@@ -97,110 +97,193 @@
 </script>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-    <style>
-        /* Custom scrollbar for display and history */
+<!-- Abre una etiqueta <style>, la cual sirve para escribir reglas de diseño y estilos personalizados con CSS -->
+<style>
+        
+        /* Modifica el ancho y la altura de la barra deslizadora (scrollbar) cuando aparece en pantallas o listas largas */
         ::-webkit-scrollbar {
             width: 6px;
             height: 6px;
         }
+        
+        /* Personaliza la pista o riel por donde se desliza la barra de desplazamiento, dándole un fondo oscuro semitransparente */
         ::-webkit-scrollbar-track {
             background: rgba(15, 23, 42, 0.6);
             border-radius: 4px;
         }
+        
+        /* Cambia el color y la forma de la "barra" que el usuario arrastra al mover la página */
         ::-webkit-scrollbar-thumb {
             background: rgba(51, 65, 85, 0.8);
             border-radius: 4px;
         }
+        
+        /* Cambia de color la barra deslizadora cuando el usuario coloca el ratón (mouse) encima de ella */
         ::-webkit-scrollbar-thumb:hover {
             background: rgba(71, 85, 105, 1);
         }
         
+        /* Crea una clase personalizada llamada .calc-btn para darle efectos animados a los botones */
         .calc-btn {
             transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
             user-select: none;
             -webkit-user-select: none;
         }
+        
+        /* Hace que cuando el usuario haga clic sobre el botón, este se haga un poquito más pequeño (efecto de presión) */
         .calc-btn:active {
             transform: scale(0.95);
         }
-    </style>
+    
+/* Cierra la sección de estilos CSS */
+</style>
+
+<!-- Cierra el encabezado del documento HTML -->
 </head>
+
+<!-- Abre el cuerpo principal de la página (<body>), configurándolo para ocupar toda la altura, con texto claro, fuente normal, distribución flexible en columna y esquinas seguras -->
 <body class="h-full text-slate-100 font-sans flex flex-col justify-between overflow-x-hidden antialiased selection:bg-brand-500 selection:text-white">
 
-    <!-- Ambient background glow -->
+    <!-- Contenedor invisible que crea un brillo de fondo estético e iluminado -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        
+        <!-- Primer círculo de luz de tono cian difuminado ubicado en la esquina superior izquierda -->
         <div class="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-cyan-500/10 blur-[120px]"></div>
+        
+        <!-- Segundo círculo de luz de tono azul difuminado ubicado en la parte media derecha -->
         <div class="absolute top-[40%] -right-[10%] w-[60%] h-[60%] rounded-full bg-blue-600/10 blur-[150px]"></div>
+    
+    <!-- Cierra el contenedor del brillo de fondo -->
     </div>
 
-    <!-- MAIN CONTAINER -->
+    <!-- Define el contenedor principal (main) que centrará los elementos en la pantalla -->
     <main class="relative z-10 flex-1 flex flex-col justify-center items-center p-4 sm:p-6 md:p-8">
 
-        <!-- LOGIN SECTION -->
+        <!-- Contenedor visual de la tarjeta de inicio de sesión -->
         <div id="login-container" class="w-full max-w-md transition-all duration-500 transform">
+            
+            <!-- Tarjeta con efecto de cristal esmerilado (backdrop blur), bordes redondeados y sombra elegante -->
             <div class="bg-slate-800/80 backdrop-blur-xl border border-slate-700/60 rounded-3xl p-6 sm:p-8 shadow-2xl shadow-cyan-950/40">
                 
-                <!-- Logo / Header -->
+                <!-- Sección superior que contiene el icono y los textos de bienvenida -->
                 <div class="text-center mb-8">
+                    
+                    <!-- Cuadro decorativo con degradado azul/cian para colocar el símbolo matemático -->
                     <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-tr from-brand-600 to-cyan-400 text-white shadow-lg shadow-brand-500/30 mb-4">
+                        
+                        <!-- Dibuja el texto f(x) con estilo de letra tipo código o máquina de escribir -->
                         <i class="fa-solid font-mono text-2xl font-bold">f(x)</i>
+                    
+                    <!-- Cierra el cuadro decorativo del icono -->
                     </div>
+                    
+                    <!-- Título principal de bienvenida en tamaño grande y negrita -->
                     <h1 class="text-2xl font-bold tracking-tight text-white">Bienvenido</h1>
+                    
+                    <!-- Subtítulo explicativo en un tono gris suave -->
                     <p class="text-xs sm:text-sm text-slate-400 mt-1">Ingresa tus credenciales para acceder a la Calculadora Científica</p>
+                
+                <!-- Cierra la sección del encabezado del login -->
                 </div>
 
-                <!-- Alert Message Container -->
+                <!-- Cuadro de alerta de error (inicialmente oculto con la clase "hidden") para cuando los datos son incorrectos -->
                 <div id="login-alert" class="hidden mb-5 p-3.5 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-xs sm:text-sm flex items-center gap-2.5">
+                    
+                    <!-- Icono de advertencia o triángulo con signo de exclamación -->
                     <i class="fa-solid fa-triangle-exclamation text-base"></i>
+                    
+                    <!-- Texto que indica que el usuario o contraseña son incorrectos -->
                     <span id="login-alert-msg">Usuario o contraseña incorrectos.</span>
+                
+                <!-- Cierra el contenedor de la alerta -->
                 </div>
 
-                <!-- Login Form -->
+                <!-- Formulario de acceso que ejecuta la función "handleLogin(event)" al pulsar el botón de entrar -->
                 <form id="login-form" onsubmit="handleLogin(event)" class="space-y-5">
+                    
+                    <!-- Grupo del campo para escribir el nombre de usuario -->
                     <div>
+                        <!-- Etiqueta superior en mayúsculas que indica qué se debe escribir -->
                         <label for="username" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Usuario</label>
+                        
+                        <!-- Contenedor relativo para alinear correctamente el icono dentro de la caja de texto -->
                         <div class="relative">
+                            
+                            <!-- Icono de una persona (usuario) ubicado a la izquierda dentro del campo -->
                             <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                                 <i class="fa-solid fa-user text-sm"></i>
                             </div>
+                            
+                            <!-- Caja de texto interactiva donde el usuario escribe su nombre de usuario -->
                             <input type="text" id="username" required autocomplete="username"
                                 class="w-full pl-10 pr-4 py-3 bg-slate-900/70 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition text-sm"
                                 placeholder="Ej: admin">
+                        
+                        <!-- Cierra el contenedor relativo del usuario -->
                         </div>
+                    
+                    <!-- Cierra el bloque del campo de usuario -->
                     </div>
 
+                    <!-- Grupo del campo para escribir la contraseña -->
                     <div>
+                        <!-- Etiqueta superior en mayúsculas para la contraseña -->
                         <label for="password" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Contraseña</label>
+                        
+                        <!-- Contenedor relativo para posicionar los iconos de la izquierda y de la derecha -->
                         <div class="relative">
+                            
+                            <!-- Icono de un candado ubicado a la izquierda del campo de contraseña -->
                             <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                                 <i class="fa-solid fa-lock text-sm"></i>
                             </div>
+                            
+                            <!-- Caja de texto secreta (tipo password) donde se escriben los caracteres ocultos -->
                             <input type="password" id="password" required autocomplete="current-password"
                                 class="w-full pl-10 pr-10 py-3 bg-slate-900/70 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition text-sm"
                                 placeholder="••••••••">
+                            
+                            <!-- Botón interactivo con la función "togglePasswordVisibility()" para mostrar u ocultar la contraseña con un clic -->
                             <button type="button" onclick="togglePasswordVisibility()" class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-white transition">
+                                
+                                <!-- Icono de un ojo que cambia cuando el usuario decide ver su contraseña -->
                                 <i id="pass-icon" class="fa-solid fa-eye text-sm"></i>
+                            
+                            <!-- Cierra el botón del ojo -->
                             </button>
+                        
+                        <!-- Cierra el contenedor relativo de la contraseña -->
                         </div>
+                    
+                    <!-- Cierra el bloque del campo de contraseña -->
                     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    
 
                     <button type="submit"
                         class="w-full py-3.5 px-4 bg-gradient-to-r from-brand-600 to-cyan-500 hover:from-brand-500 hover:to-cyan-400 text-white font-semibold rounded-xl shadow-lg shadow-brand-500/25 transition active:scale-[0.99] flex items-center justify-center gap-2 text-sm mt-2">
