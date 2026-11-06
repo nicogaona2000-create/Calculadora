@@ -257,124 +257,161 @@
                     
                     <!-- Cierra el bloque del campo de contraseña -->
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    
-
-                    <button type="submit"
+<!-- Abre un botón que al presionarlo envía el formulario de acceso (tipo "submit") -->
+<button type="submit"
+                        
+                        <!-- Aplica estilos visuales con Tailwind: ancho completo, separación interior, degradado de color azul a cian, efecto al pasar el ratón, esquinas redondeadas y sombra -->
                         class="w-full py-3.5 px-4 bg-gradient-to-r from-brand-600 to-cyan-500 hover:from-brand-500 hover:to-cyan-400 text-white font-semibold rounded-xl shadow-lg shadow-brand-500/25 transition active:scale-[0.99] flex items-center justify-center gap-2 text-sm mt-2">
+                        
+                        <!-- Etiqueta que contiene el texto visible dentro del botón -->
                         <span>Iniciar Sesión</span>
+                        
+                        <!-- Icono de una flecha hacia la derecha para darle un aspecto visual moderno al botón -->
                         <i class="fa-solid fa-arrow-right text-xs"></i>
+                    
+                    <!-- Cierra la etiqueta del botón -->
                     </button>
+                
+                <!-- Cierra la etiqueta del formulario de acceso -->
                 </form>
 
-                <!-- Demo info card -->
+                <!-- Cuadro inferior de información rápida para pruebas del sistema -->
                 <div class="mt-6 pt-5 border-t border-slate-700/50 text-center">
+                    
+                    <!-- Pequeño texto explicativo en color gris -->
                     <p class="text-xs text-slate-400 mb-2">Credenciales de prueba rápida:</p>
+                    
+                    <!-- Caja con estilo de etiqueta donde se muestran los datos de acceso predeterminados -->
                     <div class="inline-flex items-center gap-2 bg-slate-900/60 border border-slate-700/70 rounded-lg px-3 py-1.5 text-xs text-slate-300">
+                        
+                        <!-- Muestra la palabra Usuario y el valor "admin" resaltado en color cian -->
                         <span>User: <strong class="text-cyan-400">admin</strong></span>
+                        
+                        <!-- Un pequeño punto decorativo para separar el usuario de la contraseña -->
                         <span class="text-slate-600">•</span>
+                        
+                        <!-- Muestra la palabra Pass y el valor "123456" resaltado en color cian -->
                         <span>Pass: <strong class="text-cyan-400">123456</strong></span>
+                    
+                    <!-- Cierra la caja de credenciales -->
                     </div>
+                
+                <!-- Cierra el contenedor de información de prueba -->
                 </div>
+            
+            <!-- Cierra la tarjeta contenedora del formulario de inicio de sesión -->
             </div>
+        
+        <!-- Cierra el contenedor principal del login -->
         </div>
 
-        <!-- CALCULATOR SECTION (Hidden by default) -->
+        <!-- CONTENEDOR DE LA CALCULADORA (Oculto inicialmente con la clase "hidden" para que no se vea hasta iniciar sesión) -->
         <div id="calculator-container" class="hidden w-full max-w-4xl transition-all duration-500 transform opacity-0 scale-95">
             
-            <!-- App Bar / Header -->
+            <!-- Barra superior de la aplicación o encabezado de la calculadora -->
             <div class="flex items-center justify-between mb-4 px-2">
+                
+                <!-- Grupo izquierdo que contiene el logotipo miniatura "fx" y los datos del usuario conectado -->
                 <div class="flex items-center gap-3">
+                    
+                    <!-- Cuadro decorativo cuadrado con bordes redondeados y texto "fx" que simula el logo matemático -->
                     <div class="w-10 h-10 rounded-xl bg-brand-600/20 border border-brand-500/30 flex items-center justify-center text-brand-500 font-bold font-mono">
                         fx
                     </div>
+                    
+                    <!-- Contenedor de texto para el título de la calculadora y el nombre del usuario -->
                     <div>
+                        <!-- Título principal de la sección de la calculadora -->
                         <h2 class="text-base font-bold text-white leading-tight">Calculadora Científica</h2>
+                        
+                        <!-- Texto indicador que muestra el usuario conectado actualmente -->
                         <span class="text-xs text-slate-400 flex items-center gap-1.5">
+                            
+                            <!-- Un puntito verde animado que parpadea indicando que el sistema está activo y funcionando -->
                             <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            
+                            <!-- Muestra la etiqueta y el nombre del usuario activo (por ejemplo, "admin") -->
                             Usuario: <strong id="user-display-name" class="text-slate-200">admin</strong>
                         </span>
                     </div>
                 </div>
 
+                <!-- Grupo derecho con los botones de acción superior (Historial para celulares y Cerrar Sesión) -->
                 <div class="flex items-center gap-2">
+                    
+                    <!-- Botón para abrir el historial (visible solo en pantallas pequeñas gracias a la clase "md:hidden") -->
                     <button onclick="toggleHistoryDrawer()" class="md:hidden px-3 py-2 bg-slate-800 border border-slate-700 hover:bg-slate-700 text-slate-300 rounded-xl text-xs font-medium transition flex items-center gap-1.5">
+                        
+                        <!-- Icono de un reloj girando (historial) -->
                         <i class="fa-solid fa-clock-rotate-left"></i>
                         <span>Historial</span>
                     </button>
+                    
+                    <!-- Botón para cerrar sesión y regresar a la pantalla de login -->
                     <button onclick="handleLogout()" class="px-3.5 py-2 bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 rounded-xl text-xs font-semibold transition flex items-center gap-1.5">
+                        
+                        <!-- Icono de una puerta con una flecha saliendo -->
                         <i class="fa-solid fa-right-from-bracket"></i>
+                        
+                        <!-- Texto "Cerrar Sesión" que se oculta en celulares muy pequeños y se muestra en tablets o computadoras -->
                         <span class="hidden sm:inline">Cerrar Sesión</span>
                     </button>
                 </div>
             </div>
 
-            <!-- Calculator Grid Container -->
+            <!-- Cuadrícula principal que organiza la calculadora y su historial -->
             <div class="bg-slate-800/90 backdrop-blur-xl border border-slate-700/80 rounded-3xl p-4 sm:p-6 shadow-2xl grid grid-cols-1 lg:grid-cols-4 gap-6">
                 
-                <!-- Main Calculator Area (3 cols on desktop) -->
+                <!-- Área principal de los botones de la calculadora (ocupa 3 columnas en pantallas grandes) -->
                 <div class="lg:col-span-3 flex flex-col gap-4">
                     
-                    <!-- DISPLAY SCREEN -->
+                    <!-- PANTALLA O DISPLAY DONDE SE ESCRIBEN LOS NÚMEROS -->
                     <div class="bg-slate-950/80 border border-slate-800 rounded-2xl p-4 sm:p-5 flex flex-col justify-between h-36 sm:h-40 shadow-inner relative overflow-hidden">
                         
-                        <!-- Top status bar inside screen -->
+                        <!-- Barra superior de estado dentro de la pantalla (indica si usa grados/radianes o memoria) -->
                         <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+                            
+                            <!-- Grupo izquierdo con indicadores de modo de ángulo (DEG) y memoria (M) -->
                             <div class="flex items-center gap-2">
+                                <!-- Etiqueta que indica si se usan grados (DEG) -->
                                 <span id="angle-indicator" class="px-2 py-0.5 rounded bg-slate-800 text-cyan-400 font-semibold border border-slate-700">DEG</span>
+                                <!-- Etiqueta de memoria que se oculta por defecto hasta que se guarda un número -->
                                 <span id="memory-indicator" class="px-2 py-0.5 rounded bg-slate-800 text-amber-400 font-semibold border border-slate-700 hidden">M</span>
                             </div>
+                            
+                            <!-- Espacio reservado para mostrar la operación o expresión matemática anterior que se está calculando -->
                             <div id="calc-expression" class="truncate max-w-[240px] sm:max-w-[360px] text-slate-400 font-mono text-right text-xs sm:text-sm">
-                                <!-- Previous expression shows here -->
+                                <!-- Aquí aparece la expresión previa -->
                             </div>
                         </div>
 
-                        <!-- Main Screen Input/Output Display -->
+                        <!-- Pantalla principal de resultados o números actuales de la calculadora -->
                         <div class="text-right overflow-x-auto whitespace-nowrap scrollbar-none">
+                            <!-- El número "0" inicial que cambia conforme el usuario presiona los botones -->
                             <span id="calc-display" class="font-mono text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-white">0</span>
                         </div>
                     </div>
 
-                    <!-- CONTROL BAR (Deg/Rad, Shift/Inv, Memory) -->
+                    <!-- BARRA DE CONTROL RÁPIDO (Cambiar entre grados/radianes y botones de memoria como MC, MR, M+, M-) -->
                     <div class="grid grid-cols-5 gap-2 text-xs font-semibold font-mono">
+                        <!-- Botón para cambiar el modo de ángulo -->
                         <button onclick="toggleAngleMode()" id="angle-toggle-btn" class="calc-btn py-2 px-1 bg-slate-700/60 hover:bg-slate-700 border border-slate-600/50 rounded-xl text-cyan-300">
                             DEG / RAD
                         </button>
+                        <!-- Borrar memoria (Memory Clear) -->
                         <button onclick="handleMemory('MC')" class="calc-btn py-2 px-1 bg-slate-700/40 hover:bg-slate-700 border border-slate-600/40 rounded-xl text-slate-300">MC</button>
+                        <!-- Leer memoria (Memory Recall) -->
                         <button onclick="handleMemory('MR')" class="calc-btn py-2 px-1 bg-slate-700/40 hover:bg-slate-700 border border-slate-600/40 rounded-xl text-slate-300">MR</button>
+                        <!-- Sumar a la memoria (Memory Plus) -->
                         <button onclick="handleMemory('M+')" class="calc-btn py-2 px-1 bg-slate-700/40 hover:bg-slate-700 border border-slate-600/40 rounded-xl text-slate-300">M+</button>
+                        <!-- Restar a la memoria (Memory Minus) -->
                         <button onclick="handleMemory('M-')" class="calc-btn py-2 px-1 bg-slate-700/40 hover:bg-slate-700 border border-slate-600/40 rounded-xl text-slate-300">M-</button>
                     </div>
 
-                    <!-- KEYPAD GRID -->
+                    <!-- CUADRÍCULA O TECLADO DE LA CALCULADORA -->
                     <div class="grid grid-cols-5 sm:grid-cols-6 gap-2 sm:gap-2.5">
                         
-                        <!-- Row 1: Advanced Functions -->
+                        <!-- Fila 1 de botones: Funciones trigonométricas avanzadas (Seno, Coseno, Tangente y sus inversas) -->
                         <button onclick="appendFunction('sin')" class="calc-btn py-3 sm:py-3.5 bg-slate-700/50 hover:bg-slate-600/70 border border-slate-600/50 text-cyan-300 rounded-xl font-mono text-xs sm:text-sm">sin</button>
                         <button onclick="appendFunction('cos')" class="calc-btn py-3 sm:py-3.5 bg-slate-700/50 hover:bg-slate-600/70 border border-slate-600/50 text-cyan-300 rounded-xl font-mono text-xs sm:text-sm">cos</button>
                         <button onclick="appendFunction('tan')" class="calc-btn py-3 sm:py-3.5 bg-slate-700/50 hover:bg-slate-600/70 border border-slate-600/50 text-cyan-300 rounded-xl font-mono text-xs sm:text-sm">tan</button>
@@ -382,6 +419,39 @@
                         <button onclick="appendFunction('acos')" class="calc-btn py-3 sm:py-3.5 bg-slate-700/50 hover:bg-slate-600/70 border border-slate-600/50 text-cyan-300 rounded-xl font-mono text-xs sm:text-sm">cos⁻¹</button>
                         <button onclick="appendFunction('atan')" class="calc-btn hidden sm:block py-3 sm:py-3.5 bg-slate-700/50 hover:bg-slate-600/70 border border-slate-600/50 text-cyan-300 rounded-xl font-mono text-xs sm:text-sm">tan⁻¹</button>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        
                         <!-- Row 2: Powers & Logs -->
                         <button onclick="appendFunction('log')" class="calc-btn py-3 sm:py-3.5 bg-slate-700/50 hover:bg-slate-600/70 border border-slate-600/50 text-cyan-300 rounded-xl font-mono text-xs sm:text-sm">log</button>
                         <button onclick="appendFunction('ln')" class="calc-btn py-3 sm:py-3.5 bg-slate-700/50 hover:bg-slate-600/70 border border-slate-600/50 text-cyan-300 rounded-xl font-mono text-xs sm:text-sm">ln</button>
